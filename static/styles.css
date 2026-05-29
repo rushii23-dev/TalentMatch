@@ -31,6 +31,18 @@
 
   /* Bezier Transitions - Attio Motion Profile */
   --transition-default: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Updated Scale for Normal Web Proportions */
+  --text-display: 48px;         /* Main large hero headlines */
+  --text-heading-lg: 28px;      /* Main section titles like Leaderboard/Upload titles */
+  --text-heading: 20px;         /* Panel headers like "Hiring Strategy" */
+  --text-heading-sm: 14px;      /* Capitalized section tags like "TARGET ROLE" */
+  --text-body: 16px;            /* Standard operational text, inputs, dropdown options, and list entries */
+  --text-body-sm: 15px;         /* Standard secondary metrics and descriptions */
+  --text-caption: 13px;         /* Minor sub-messages, upload limits, and timestamps */
+  
+  /* Proportional Spacing Adjustment */
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ── 2. GLOBAL RESET & BASE STYLES ────────────────────────────────────────── */
@@ -2430,4 +2442,82 @@ body.page-dashboard .main-canvas {
   color: var(--color-graphite);
   border-top: 1px solid var(--color-light-ash);
   padding-top: 15px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   9. TYPOGRAPHY AND COMPONENT DENSITY RECALIBRATION OVERRIDES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Sidebar Recalibration */
+.sidebar-title {
+  font-size: var(--text-heading) !important;
+  font-weight: 600 !important;
+}
+
+.control-label,
+.sidebar-label {
+  font-size: var(--text-heading-sm) !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.input-select,
+.filter-text-input,
+.role-dropdown,
+.role-search-wrapper input,
+.form-input {
+  font-size: var(--text-body) !important;
+  height: 40px !important;
+  padding: 12px 10px !important;
+}
+
+.role-search-wrapper {
+  height: 40px !important;
+}
+
+.tech-check-item label,
+.form-checkbox-label {
+  font-size: var(--text-body) !important;
+}
+
+.seniority-pill {
+  font-size: 14px !important;
+  padding: 10px 16px !important;
+  font-weight: 500 !important;
+}
+
+/* Main Dropzone Recalibration */
+.upload-zone .upload-title {
+  font-size: var(--text-heading) !important;
+  font-weight: 600 !important;
+}
+
+.upload-zone .upload-caption {
+  font-size: var(--text-caption) !important;
+}
+
+.upload-zone .btn-primary,
+.upload-zone .btn-outline,
+#executeBtn {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  padding: 12px 28px !important;
+  height: auto !important;
+}
+
+/* Leaderboard Grid Recalibration */
+.data-table th {
+  font-size: var(--text-caption) !important;
+  font-weight: 600 !important;
+}
+
+.leaderboard-empty {
+  font-size: var(--text-body) !important;
+  line-height: 1.6 !important;
+}
+
+.sort-button {
+  font-size: 14px !important;
+  padding: 6px 14px !important;
 }
