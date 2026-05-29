@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TalentMatch AI Recruiter Dashboard — Evaluate, score, and rank candidate pools.">
+  <title>TalentMatch AI | Recruiter Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="page-dashboard">
+
+  <div class="app-container">
+
+    <!-- ═══ TIER 1: FAR-LEFT GLOBAL UTILITY ICON DOCK ════════════════════════ -->
+    <nav class="global-dock">
+      <div class="dock-top">
+        <div class="dock-logo" title="TalentMatch AI">TM</div>
+        <div class="dock-items">
+          <!-- Grid Layout Icon (Active) -->
+          <div class="dock-item active" title="Dashboard">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          </div>
+          <!-- Search Mirror Icon -->
+          <div class="dock-item" title="Search">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+          <!-- Candidates Directory Icon -->
+          <div class="dock-item" title="Candidates">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <!-- Settings Gear Icon -->
+          <div class="dock-item" title="Settings">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </div>
+        </div>
+      </div>
+      <!-- User profile photo avatar block removed completely -->
+    </nav>
+
+    <!-- ═══ TIER 2: HIRING STRATEGY FILTER SIDEBAR ═══════════════════════════ -->
+    <aside class="sidebar-filters">
+      <div class="sidebar-header">
+        <div class="sidebar-title">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Hiring Strategy
+        </div>
+        <p class="sidebar-caption">Configure metrics and tech stacks</p>
+      </div>
+
+      <!-- Target Role Engine -->
+      <div class="sidebar-section">
+        <label class="sidebar-label">Target Role</label>
+        <div class="role-select-wrapper">
+          <div class="role-search-wrapper">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="roleSearch" placeholder="Type to filter roles..." autocomplete="off">
+          </div>
+          <select class="role-dropdown" id="roleSelect">
+            <!-- Populated via script.js -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Experience Seniority Array -->
+      <div class="sidebar-section">
+        <label class="sidebar-label">Experience Seniority</label>
+        <div class="seniority-array" id="seniorityPills">
+          <button class="seniority-pill" data-level="Junior">J</button>
+          <button class="seniority-pill" data-level="Mid">Mid</button>
+          <button class="seniority-pill active" data-level="Senior">Sen</button>
+          <button class="seniority-pill" data-level="Lead">Lea</button>
+          <button class="seniority-pill" data-level="Principal">Pri</button>
+        </div>
+      </div>
+
+      <!-- Technical Stack Matrix Accordion -->
+      <div class="sidebar-section">
+        <label class="sidebar-label">Technical Stack Matrix</label>
+        <div class="tech-accordion">
+          
+          <!-- Languages -->
+          <details class="tech-group" open>
+            <summary>Languages</summary>
+            <div class="tech-content">
+              <input type="text" class="tech-micro-search" placeholder="Filter text filter..." data-group="languages">
+              <div class="tech-checklist" data-group="languages">
+                <div class="tech-check-item"><input type="checkbox" id="skill-python" value="Python" checked><label for="skill-python">Python</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-java" value="Java"><label for="skill-java">Java</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-javascript" value="JavaScript"><label for="skill-javascript">JavaScript</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-cpp" value="C++"><label for="skill-cpp">C++</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-go" value="Go"><label for="skill-go">Go</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-rust" value="Rust"><label for="skill-rust">Rust</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-typescript" value="TypeScript"><label for="skill-typescript">TypeScript</label></div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Clouds -->
+          <details class="tech-group">
+            <summary>Clouds &amp; Frameworks</summary>
+            <div class="tech-content">
+              <input type="text" class="tech-micro-search" placeholder="Filter text filter..." data-group="clouds">
+              <div class="tech-checklist" data-group="clouds">
+                <div class="tech-check-item"><input type="checkbox" id="skill-aws" value="AWS" checked><label for="skill-aws">AWS</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-gcp" value="GCP"><label for="skill-gcp">GCP</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-azure" value="Azure"><label for="skill-azure">Azure</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-pytorch" value="PyTorch" checked><label for="skill-pytorch">PyTorch</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-docker" value="Docker" checked><label for="skill-docker">Docker</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-kubernetes" value="Kubernetes"><label for="skill-kubernetes">Kubernetes</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-react" value="React"><label for="skill-react">React</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-nextjs" value="Next.js"><label for="skill-nextjs">Next.js</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-fastapi" value="FastAPI"><label for="skill-fastapi">FastAPI</label></div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Databases -->
+          <details class="tech-group">
+            <summary>Databases &amp; Vectors</summary>
+            <div class="tech-content">
+              <input type="text" class="tech-micro-search" placeholder="Filter text filter..." data-group="databases">
+              <div class="tech-checklist" data-group="databases">
+                <div class="tech-check-item"><input type="checkbox" id="skill-postgresql" value="PostgreSQL"><label for="skill-postgresql">PostgreSQL</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-mongodb" value="MongoDB"><label for="skill-mongodb">MongoDB</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-redis" value="Redis"><label for="skill-redis">Redis</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-pinecone" value="Pinecone"><label for="skill-pinecone">Pinecone</label></div>
+                <div class="tech-check-item"><input type="checkbox" id="skill-chromadb" value="ChromaDB"><label for="skill-chromadb">ChromaDB</label></div>
+              </div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <!-- Engineering Focus -->
+      <div class="sidebar-section">
+        <label class="sidebar-label">Engineering Focus</label>
+        <div class="tech-checklist">
+          <div class="tech-check-item"><input type="checkbox" id="focus-scalability" value="System Scalability" checked><label for="focus-scalability">System Scalability</label></div>
+          <div class="tech-check-item"><input type="checkbox" id="focus-cleancode" value="Clean Code" checked><label for="focus-cleancode">Clean Code</label></div>
+          <div class="tech-check-item"><input type="checkbox" id="focus-cultural" value="Cultural Alignment"><label for="focus-cultural">Cultural Alignment</label></div>
+        </div>
+      </div>
+
+      <!-- Recruiter Red Flags -->
+      <div class="sidebar-section">
+        <label class="sidebar-label">Recruiter Red Flags</label>
+        <div class="tech-checklist">
+          <div class="tech-check-item"><input type="checkbox" id="flag-jobhopping" value="Chronic Job Hopping"><label for="flag-jobhopping">Chronic Job Hopping</label></div>
+          <div class="tech-check-item"><input type="checkbox" id="flag-keywordstuffing" value="Keyword Stuffing"><label for="flag-keywordstuffing">Keyword Stuffing</label></div>
+        </div>
+      </div>
+
+      <!-- Active Custom Pill Tags -->
+      <div class="sidebar-section" style="margin-top: auto; border-top: 1px solid var(--color-light-ash); padding-top: 12px;">
+        <label class="sidebar-label" style="margin-bottom: 4px;">Active Filters</label>
+        <div class="active-tags-container" id="activeFilters">
+          <!-- Populated by script.js -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- ═══ TIER 3: MAIN APP STAGE & DYNAMIC LEADERBOARD CANVAS ══════════════ -->
+    <main class="main-canvas">
+      
+      <!-- Top Global Sub-Nav Header -->
+      <header class="top-subnav">
+        <div class="subnav-left">
+          <select class="workspace-selector" id="workspaceSelect">
+            <option>Acme Recruiting (Standard)</option>
+            <option>Engineering Team</option>
+          </select>
+          <div class="omni-search-wrapper">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="omniSearch" placeholder="Search matches, skills, names..." autocomplete="off">
+          </div>
+        </div>
+        <div class="subnav-tabs">
+          <div class="subnav-tab active">Live Ranking Leaderboard [Active]</div>
+          <div class="subnav-tab">All Candidates</div>
+          <div class="subnav-tab">Processed PDFs</div>
+        </div>
+      </header>
+
+      <!-- Expanded Drag-and-Drop Resume Zone (High-Attention Focal Point) -->
+      <section class="upload-zone" id="uploadZone">
+        <div class="upload-icon-container">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+        </div>
+        <h3 class="upload-title">Drag &amp; drop candidate resume PDFs here or click to browse files.</h3>
+        <p class="upload-caption">Supports batch uploads up to 200MB total (PDF, TXT)</p>
+        
+        <input type="file" id="fileInput" multiple accept=".pdf,.txt" style="display: none;">
+        
+        <div class="file-tags-list" id="fileList"></div>
+        
+        <div class="upload-actions-row">
+          <button class="btn-outline" onclick="document.getElementById('fileInput').click()">Browse Files</button>
+          <button class="btn-primary" id="executeBtn">Execute Intelligent Evaluation</button>
+        </div>
+      </section>
+
+      <!-- Micro-Analytics Matrix -->
+      <section class="analytics-matrix">
+        <!-- 1. Processing Power -->
+        <div class="analytics-card">
+          <span class="analytics-label">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Processing Power
+          </span>
+          <div class="analytics-value-row">
+            <span class="analytics-value" id="metricProcessing">—</span>
+            <span class="analytics-badge blue">
+              <span class="status-node"></span>
+              Live
+            </span>
+          </div>
+        </div>
+        <!-- 2. Cost Saved -->
+        <div class="analytics-card">
+          <span class="analytics-label">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            Cost Saved
+          </span>
+          <div class="analytics-value-row">
+            <span class="analytics-value" id="metricCost">—</span>
+            <span class="analytics-badge gray">Streamlined</span>
+          </div>
+        </div>
+        <!-- 3. Top Skill Match -->
+        <div class="analytics-card">
+          <span class="analytics-label">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Top Skill Match
+          </span>
+          <div class="analytics-value-row">
+            <span class="analytics-value" id="metricSkill">—</span>
+            <span class="analytics-badge gray">Matrix</span>
+          </div>
+        </div>
+        <!-- 4. Red Flags Density -->
+        <div class="analytics-card">
+          <span class="analytics-label">
+            <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            Red Flags Density
+          </span>
+          <div class="analytics-value-row">
+            <span class="analytics-value" id="metricFlags">—</span>
+            <span class="analytics-badge green" id="metricFlagsBadge">Low</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Data Grid Leaderboard -->
+      <section class="leaderboard-container">
+        <div class="leaderboard-title-row">
+          <h2>🏆 Live Ranking Leaderboard</h2>
+          <div class="leaderboard-sort-bar">
+            <span class="sort-text">Sort by:</span>
+            <button class="sort-button active" data-sort="score">Score</button>
+            <button class="sort-button" data-sort="tech_depth">Tech Depth</button>
+            <button class="sort-button" data-sort="name">Name</button>
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th class="col-rank">Rank</th>
+              <th>Candidate</th>
+              <th>Match Score</th>
+              <th>Key Tech Depth</th>
+              <th>Culture Alignment</th>
+              <th>Fit Justification</th>
+              <th>Tags</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard">
+            <tr>
+              <td colspan="7">
+                <div class="leaderboard-empty">No candidates evaluated yet. Please drop resume PDFs above to launch the AI ranking engine.</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+
+  </div><!-- /.app-container -->
+
+  <!-- ─── DETAILS DRAWER ─────────────────────────────────────────────────── -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="detail-drawer" id="detailDrawer">
+    <div class="drawer-header">
+      <h2 id="drawerTitle">Candidate Profile Details</h2>
+      <button class="drawer-close" id="drawerClose">&times;</button>
+    </div>
+    <div class="drawer-body" id="drawerBody">
+      <!-- Loaded dynamically -->
+    </div>
+  </aside>
+
+  <!-- ─── LOADING OVERLAY ────────────────────────────────────────────────── -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+    <div class="loading-text" id="loadingText">Analyzing candidate resumes...</div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TalentMatch AI | Recruiter Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#c7c4d7",
+                      "on-tertiary-container": "#5b0017",
+                      "inverse-surface": "#dae2fd",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "surface-container-low": "#131b2e",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "on-tertiary-fixed": "#40000d",
+                      "on-background": "#dae2fd",
+                      "primary-container": "#8083ff",
+                      "on-surface": "#dae2fd",
+                      "on-tertiary": "#67001b",
+                      "secondary-container": "#04b4a2",
+                      "error-container": "#93000a",
+                      "on-secondary-container": "#003f38",
+                      "on-primary": "#1000a9",
+                      "tertiary-container": "#ff516a",
+                      "outline": "#908fa0",
+                      "error": "#ffb4ab",
+                      "tertiary-fixed": "#ffdadb",
+                      "surface-container-lowest": "#060e20",
+                      "outline-variant": "#464554",
+                      "surface": "#0b1326",
+                      "secondary": "#4fdbc8",
+                      "on-secondary-fixed": "#00201c",
+                      "on-tertiary-fixed-variant": "#92002a",
+                      "surface-bright": "#31394d",
+                      "inverse-primary": "#494bd6",
+                      "secondary-fixed": "#71f8e4",
+                      "surface-variant": "#2d3449",
+                      "on-error": "#690005",
+                      "on-error-container": "#ffdad6",
+                      "primary-fixed": "#e1e0ff",
+                      "on-primary-fixed": "#07006c",
+                      "primary": "#c0c1ff",
+                      "surface-dim": "#0b1326",
+                      "surface-tint": "#c0c1ff",
+                      "inverse-on-surface": "#283044",
+                      "background": "#0b1326",
+                      "surface-container": "#171f33",
+                      "on-secondary": "#003731",
+                      "surface-container-highest": "#2d3449",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "on-secondary-fixed-variant": "#005048",
+                      "on-primary-container": "#0d0096",
+                      "tertiary-fixed-dim": "#ffb2b7",
+                      "surface-container-high": "#222a3d",
+                      "tertiary": "#ffb2b7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "container-max-width": "1440px",
+                      "margin-desktop": "48px",
+                      "stack-lg": "32px",
+                      "stack-sm": "8px",
+                      "unit": "4px",
+                      "gutter": "24px",
+                      "stack-md": "16px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-md": ["Geist"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-xl": ["Inter"]
+              },
+              "fontSize": {
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #464554; }
+        .glow-primary {
+            box-shadow: 0 0 20px rgba(128, 131, 255, 0.3);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden h-screen flex">
+<!-- SideNavBar (Hiring Strategy Configurator) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col w-72 bg-surface border-r border-outline-variant z-50 overflow-y-auto">
+<div class="p-stack-md border-b border-outline-variant">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="psychology">psychology</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">TalentMatch AI</h1>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Technical Recruitment</p>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-8">
+<!-- Navigation Links -->
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary font-bold border-l-2 border-primary bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="font-label-md text-label-md">Candidate Pipeline</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-label-md text-label-md">Market Insights</span>
+</a>
+</div>
+<!-- Configurator Section -->
+<div class="space-y-6">
+<div class="flex items-center gap-2 px-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="tune">tune</span>
+<h2 class="font-label-md text-label-md uppercase text-on-surface-variant">Hiring Strategy</h2>
+</div>
+<!-- Job Title -->
+<div class="px-2 space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Target Role</label>
+<select class="w-full bg-surface-container border border-outline-variant rounded-lg p-2 text-body-sm focus:border-primary outline-none appearance-none">
+<option>AI/Data Science</option>
+<option>Frontend</option>
+<option>Backend</option>
+<option>Fullstack</option>
+<option>Mobile</option>
+</select>
+</div>
+<!-- Experience -->
+<div class="px-2 space-y-4">
+<div class="flex justify-between">
+<label class="font-label-md text-label-md text-on-surface-variant">Min. Experience</label>
+<span class="text-primary font-bold text-label-md">Senior</span>
+</div>
+<input class="w-full h-1.5 bg-outline-variant rounded-lg appearance-none cursor-pointer accent-primary" max="4" min="1" type="range" value="3"/>
+</div>
+<!-- Focus Checkboxes -->
+<div class="px-2 space-y-3">
+<label class="font-label-md text-label-md text-on-surface-variant">Engineering Focus</label>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-4 h-4 rounded border-outline-variant bg-surface text-primary focus:ring-0" type="checkbox"/>
+<span class="text-body-sm text-on-surface group-hover:text-primary transition-colors">System Scalability</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-4 h-4 rounded border-outline-variant bg-surface text-primary focus:ring-0" type="checkbox"/>
+<span class="text-body-sm text-on-surface group-hover:text-primary transition-colors">Clean Code</span>
+</label>
+</div>
+</div>
+<!-- Red Flags -->
+<div class="px-2 pt-4 border-t border-outline-variant/30">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="warning">warning</span>
+<span class="font-label-md text-label-md uppercase text-tertiary">Recruiter Red Flags</span>
+</div>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded border-tertiary/50 bg-surface-container text-tertiary focus:ring-0" type="checkbox"/>
+<span class="text-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Chronic Job Hopping</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded border-tertiary/50 bg-surface-container text-tertiary focus:ring-0" type="checkbox"/>
+<span class="text-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Keyword Stuffing</span>
+</label>
+</div>
+</div>
+</div>
+</nav>
+<div class="p-4 border-t border-outline-variant bg-surface-container-low">
+<button class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-on-primary rounded-xl font-bold transition-transform active:scale-95 shadow-lg">
+<span class="material-symbols-outlined" data-icon="save">save</span>
+<span class="text-label-md">Save Strategy</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Panel -->
+<main class="ml-72 flex-1 h-full overflow-y-auto bg-surface-dim flex flex-col">
+<!-- TopNavBar -->
+<header class="h-16 sticky top-0 z-40 bg-surface-container/80 backdrop-blur-md border-b border-outline-variant px-margin-desktop flex items-center justify-between">
+<div class="flex items-center gap-8">
+<h2 class="font-headline-md text-headline-md font-extrabold text-primary">Batch Processing</h2>
+<div class="hidden lg:flex gap-6">
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">Analytics</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" href="#">Team</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" href="#">Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<a href="luminous_dashboard.html" class="px-4 py-2 bg-surface-variant hover:bg-surface-bright hover:text-primary text-on-surface rounded-lg flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="light_mode">light_mode</span>
+<span class="text-label-md">Light Mode</span>
+</a>
+<button class="px-4 py-2 bg-surface-variant hover:bg-surface-bright text-on-surface rounded-lg flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+<span class="text-label-md">Download CSV</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-all" data-icon="notifications">notifications</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary">
+<img alt="Recruiter profile" class="w-full h-full object-cover" data-alt="A professional headshot of a modern technical recruiter in a sleek, minimalist glass-walled office environment. Soft evening city lights are visible in the background through large windows. The lighting is high-key and professional, with a cool-toned aesthetic focusing on deep blues and sharp indigos. The subject has a confident, approachable expression, representing technical superiority and modern recruitment expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZDAVJ7R24ldb2FmWZErg-X8B_g3Hj1lVlgWxyifMttYRR7bowfNUnSMigt9vaxuKDe1fFsxYHA1XSu5Kn5XFUpB32liPF2MMaGSJfItyDirzCca4xJNMeQaMkz-IGqGqulnPLAIcUJ9ha-RTsdFFfe3f0K5zWVKZ7D2hDxEoZN6Kuk6ymZ4c0LMUzT69fXlOBlPA6TcLHnH4leiBqLsm4wkGz-LBIoHRlmrvdJRtisl1sgthM9R2j99e2cQga7MLFWvRq_mAn9KPR"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Dashboard Canvas -->
+<div class="p-gutter max-w-container-max-width mx-auto w-full space-y-gutter">
+<!-- Upload & CTA Area -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+<div class="xl:col-span-2 glass-card rounded-xl p-stack-lg border-dashed border-2 border-primary/40 flex flex-col items-center justify-center min-h-[240px] group hover:border-primary transition-all cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="upload_file">upload_file</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Batch Resume Evaluation</h3>
+<p class="text-on-surface-variant text-body-md text-center max-w-md">Drop candidate resume PDFs here to batch process. Our AI will rank them against your strategy matrix in real-time.</p>
+</div>
+<div class="bg-surface-container border border-outline-variant rounded-xl p-stack-lg flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="px-3 py-1 bg-secondary/10 text-secondary text-label-md rounded-full font-bold">LIVE PROCESSING</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="bolt">bolt</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Execute Ranking</h3>
+<p class="text-on-surface-variant text-body-sm">Initiate the intelligent evaluation engine to match 42 queued candidates against the "AI/Data Science" strategy.</p>
+</div>
+<button class="w-full py-4 bg-primary-container text-on-primary-container font-bold rounded-xl flex items-center justify-center gap-3 glow-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+<span class="text-label-md">Execute Intelligent Evaluation</span>
+</button>
+</div>
+</div>
+<!-- Live Leaderboard Table -->
+<div class="bg-surface-container border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center bg-surface-container-high/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="leaderboard">leaderboard</span>
+<h3 class="font-headline-md text-headline-md">Live Ranking Leaderboard</h3>
+</div>
+<div class="flex gap-2">
+<div class="px-3 py-1 bg-surface-variant rounded flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-label-md text-on-surface-variant">42 Candidates Evaluated</span>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest/30">
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Rank (#)</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Candidate Name</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Overall Score</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Technical Depth</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Culture Fit</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Why They Fit</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-6 py-5">
+<span class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary rounded font-bold">01</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold">EK</div>
+<div>
+<div class="text-on-surface font-bold">Elena Kozlova</div>
+<div class="text-body-sm text-on-surface-variant">Senior ML Engineer</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="flex-1 h-2 bg-outline-variant rounded-full overflow-hidden max-w-[100px]">
+<div class="h-full bg-secondary w-[96%]"></div>
+</div>
+<span class="text-secondary font-bold text-label-md">96%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-primary/10 text-primary text-label-md rounded-full">Exemplary</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-secondary/10 text-secondary text-label-md rounded-full">High Alignment</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-body-sm text-on-surface-variant max-w-xs line-clamp-2">Strong background in distributed training and PyTorch optimization. Matches "System Scalability" requirement perfectly.</p>
+</td>
+<td class="px-6 py-5">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="arrow_forward_ios">arrow_forward_ios</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-6 py-5">
+<span class="w-8 h-8 flex items-center justify-center bg-surface-variant text-on-surface rounded font-bold">02</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold">JD</div>
+<div>
+<div class="text-on-surface font-bold">Julian Duarte</div>
+<div class="text-body-sm text-on-surface-variant">Backend Architect</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="flex-1 h-2 bg-outline-variant rounded-full overflow-hidden max-w-[100px]">
+<div class="h-full bg-secondary w-[89%]"></div>
+</div>
+<span class="text-secondary font-bold text-label-md">89%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-primary/10 text-primary text-label-md rounded-full">Strong</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-secondary/10 text-secondary text-label-md rounded-full">Founder Mindset</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-body-sm text-on-surface-variant max-w-xs line-clamp-2">Previous startup co-founder. Deep experience in PostgreSQL query optimization and Go microservices.</p>
+</td>
+<td class="px-6 py-5">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="arrow_forward_ios">arrow_forward_ios</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-6 py-5">
+<span class="w-8 h-8 flex items-center justify-center bg-surface-variant text-on-surface rounded font-bold">03</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-bold">SM</div>
+<div>
+<div class="text-on-surface font-bold">Sarah Manning</div>
+<div class="text-body-sm text-on-surface-variant">Fullstack Lead</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="flex-1 h-2 bg-outline-variant rounded-full overflow-hidden max-w-[100px]">
+<div class="h-full bg-secondary w-[84%]"></div>
+</div>
+<span class="text-secondary font-bold text-label-md">84%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-primary/10 text-primary text-label-md rounded-full">Average</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-outline-variant/20 text-on-surface-variant text-label-md rounded-full">Pending Analysis</span>
+</td>
+<td class="px-6 py-5">
+<p class="text-body-sm text-on-surface-variant max-w-xs line-clamp-2">Impressive React/Typescript depth. Needs deeper assessment on database scaling strategies.</p>
+</td>
+<td class="px-6 py-5">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="arrow_forward_ios">arrow_forward_ios</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-outline-variant flex justify-center">
+<button class="text-primary text-label-md hover:underline font-bold py-2 px-6">View All Ranked Candidates</button>
+</div>
+</div>
+<!-- Atmospheric Bottom Section (Quick Stats) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter pb-stack-lg">
+<div class="bg-surface-container border border-outline-variant p-stack-md rounded-lg">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-2">Processing Power</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md">1.2s</span>
+<span class="material-symbols-outlined text-secondary" data-icon="speed">speed</span>
+</div>
+</div>
+<div class="bg-surface-container border border-outline-variant p-stack-md rounded-lg">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-2">Cost Saved</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md">$14.2k</span>
+<span class="material-symbols-outlined text-secondary" data-icon="monetization_on">monetization_on</span>
+</div>
+</div>
+<div class="bg-surface-container border border-outline-variant p-stack-md rounded-lg">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-2">Top Skill Match</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md">PyTorch</span>
+<span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+</div>
+</div>
+<div class="bg-surface-container border border-outline-variant p-stack-md rounded-lg">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-2">Red Flag Density</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md">Low (4%)</span>
+<span class="material-symbols-outlined text-tertiary" data-icon="security">security</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Micro-Interaction Elements -->
+<div class="fixed bottom-8 right-8 bg-primary text-on-primary px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4 translate-y-32 transition-transform duration-500 z-[100]" id="processing-toast">
+<div class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+<span class="font-bold text-label-md">Processing 42 New Resumes...</span>
+</div>
+<script>
+        // Simple micro-interaction for the "Execute" button
+        const executeBtn = document.querySelector('button.glow-primary');
+        const toast = document.getElementById('processing-toast');
+
+        if (executeBtn) {
+            executeBtn.addEventListener('click', () => {
+                toast.classList.remove('translate-y-32');
+                setTimeout(() => {
+                    toast.classList.add('translate-y-32');
+                }, 4000);
+            });
+        }
+
+        // Hover effect for side navigation
+        const navItems = document.querySelectorAll('aside nav a');
+        navItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                if (!item.classList.contains('text-primary')) {
+                    item.style.transform = 'translateX(4px)';
+                }
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateX(0px)';
+            });
+        });
+    </script>
+</body></html>

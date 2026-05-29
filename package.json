@@ -1,0 +1,12 @@
+{
+  "name": "talentmatch-ai-recruiter-dashboard",
+  "version": "1.0.0",
+  "description": "TalentMatch AI Recruiter Dashboard - Stitch Project",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "^5.2.11"
+  }
+}

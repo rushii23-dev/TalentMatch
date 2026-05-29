@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to TalentMatch AI to access the recruitment platform.">
+  <title>TalentMatch AI — Sign In</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="page-login">
+
+  <div class="login-card">
+    <div class="login-header">
+      <div class="login-logo-box">TM</div>
+      <div class="login-title-group">
+        <h2>Sign in to your account</h2>
+        <p>Access the intelligent recruitment workspace</p>
+      </div>
+    </div>
+
+    <form class="login-form" id="loginForm">
+      <div class="form-field">
+        <label for="loginEmail" class="form-label">Email address</label>
+        <input type="email" id="loginEmail" class="form-input" placeholder="you@company.com" required autocomplete="email">
+      </div>
+
+      <div class="form-field">
+        <label for="loginPassword" class="form-label">Password</label>
+        <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" required autocomplete="current-password">
+      </div>
+
+      <div class="form-row">
+        <label class="form-checkbox-label">
+          <input type="checkbox" id="loginRemember">
+          <span>Remember me</span>
+        </label>
+        <a href="#" class="form-link">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn-primary" style="margin-top: 10px;">Sign In</button>
+    </form>
+
+    <div class="login-alt">
+      <span>Don't have an account? </span>
+      <a href="/login" class="form-link">Request access</a>
+    </div>
+  </div>
+
+  <script>
+    // Minimal session cookie setter and redirect to dashboard
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Set a short-lived session cookie for gating (path=/)
+      document.cookie = 'tm_session=1; path=/; max-age=' + (60 * 60 * 24);
+      window.location.href = '/dashboard';
+    });
+  </script>
+</body>
+</html>

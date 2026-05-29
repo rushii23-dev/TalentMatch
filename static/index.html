@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TalentMatch AI — Rebuilt with Attio's official landing design system. Build strategy matrices, upload resumes, and view live candidate rankings.">
+  <title>TalentMatch AI — Premium Recruitment Platform</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      /* Architectural Colors */
+      --color-cloud-white: #ffffff;
+      --color-faint-fog: #f9f9fb;
+      --color-polar-mist: #eff0f6;
+      --color-light-ash: #e5e7eb;
+      --color-graphite: #5f6368;
+      --color-deep-charcoal: #1d1e20;
+      --color-active-indigo: #266df0;
+      
+      /* Precision Typography (Letter Tracking is CRUCIAL) */
+      --font-primary: 'Inter', sans-serif;
+      --text-display: 56px;
+      --leading-display: 1.1;
+      --tracking-display: -0.03em;
+      --text-heading-lg: 32px;
+      --text-body-sm: 15px;
+      --leading-body-sm: 1.6;
+      --tracking-body: -0.01em;
+      
+      /* Shapes & Curves */
+      --page-max-width: 1247px;
+      --radius-buttons: 9999px; /* Perfect Pill */
+      --radius-default: 6.26px;
+      --radius-xl: 12.53px;
+      
+      /* Attio Dynamic Motion Profile (Strict Bezier) */
+      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+</head>
+<body class="page-landing">
+
+  <!-- ═══ NAVIGATION ═══════════════════════════════════════════════════════ -->
+  <nav class="landing-nav">
+    <div class="landing-nav-inner">
+      <a href="/" class="nav-brand">TalentMatch AI</a>
+      <div class="nav-links">
+        <a href="#product" class="nav-link">Product</a>
+        <a href="/how-it-works" class="nav-link">How it Works</a>
+        <a href="/pricing" class="nav-link">Pricing</a>
+      </div>
+      <a href="/login" class="btn-primary">Start Evaluation - Free</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO SECTION ═════════════════════════════════════════════════════ -->
+  <section class="hero-section">
+    <div class="hero-tag">
+      <span>✦</span> TalentMatch for Enterprise
+    </div>
+    <h1 class="hero-headline">Hiring isn't a keyword search. It's a matching framework.</h1>
+    <p class="hero-subtext">A beautifully organized AI talent engine that analyzes technical depth, growth trajectory, and behavioral signals. Experience recruitment with zero visual clutter.</p>
+  </section>
+
+  <!-- ═══ PRODUCT INTERFACE SIMULATION WORKSPACE (1247PX FRAME) ═══════════ -->
+  <section class="demo-section" id="product">
+    <div class="demo-inner">
+      
+      <!-- Left Sidebar Simulator -->
+      <aside class="demo-sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-title">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+            Hiring Strategy
+          </div>
+          <p class="sidebar-caption">Interactive simulator demo</p>
+        </div>
+
+        <!-- Target Role -->
+        <div class="sidebar-section">
+          <label class="sidebar-label">Target Role</label>
+          <div class="role-select-wrapper">
+            <div class="role-search-wrapper">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="demoRoleSearch" placeholder="Type to filter roles..." autocomplete="off">
+            </div>
+            <select class="role-dropdown" id="demoRoleSelect">
+              <!-- Populated via script.js -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Experience Seniority Array -->
+        <div class="sidebar-section">
+          <label class="sidebar-label">Experience Seniority</label>
+          <div class="seniority-array" id="demoSeniorityPills">
+            <button class="seniority-pill" data-level="Junior">Junior</button>
+            <button class="seniority-pill" data-level="Mid">Mid</button>
+            <button class="seniority-pill active" data-level="Senior">Senior</button>
+            <button class="seniority-pill" data-level="Lead">Lead</button>
+          </div>
+        </div>
+
+        <!-- Tech Stack Matrix -->
+        <div class="sidebar-section">
+          <label class="sidebar-label">Technical Stack</label>
+          <div class="active-tags-container">
+            <span class="active-tag">Python <span class="tag-close">&times;</span></span>
+            <span class="active-tag">PyTorch <span class="tag-close">&times;</span></span>
+            <span class="active-tag">AWS <span class="tag-close">&times;</span></span>
+            <span class="active-tag">Docker <span class="tag-close">&times;</span></span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Canvas Simulator -->
+      <main class="demo-canvas">
+        <div class="top-subnav">
+          <div class="subnav-left">
+            <div class="workspace-selector">Acme Engineering</div>
+          </div>
+          <div class="subnav-tabs">
+            <div class="subnav-tab active">Live Ranking Leaderboard</div>
+            <div class="subnav-tab">All Candidates</div>
+          </div>
+        </div>
+
+        <!-- Leaderboard Table -->
+        <div class="leaderboard-container">
+          <div class="leaderboard-title-row">
+            <h2>🏆 Simulated Matches</h2>
+            <div class="leaderboard-sort-bar">
+              <span class="sort-text">Sorted by Score</span>
+            </div>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th class="col-rank">Rank</th>
+                <th>Candidate</th>
+                <th>Match Score</th>
+                <th>Key Tech Depth</th>
+                <th>Culture Alignment</th>
+                <th>Fit Justification</th>
+                <th>Tags</th>
+              </tr>
+            </thead>
+            <tbody id="demoLeaderboard">
+              <!-- Populated dynamically via script.js -->
+            </tbody>
+          </table>
+        </div>
+      </main>
+
+    </div>
+  </section>
+
+  <!-- ═══ FEATURES GRID SECTION ════════════════════════════════════════════ -->
+  <section class="features-grid-section" id="features">
+    <h2 class="display-title-md" style="text-align: center; margin-bottom: 48px;">An evaluation engine built for clarity.</h2>
+    <div class="features-grid">
+      <!-- Card 1: Instant Talent Discovery -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </div>
+        <h3 class="feature-title">Instant Talent Discovery</h3>
+        <p class="feature-desc">Find the right fit, faster. Stop manually scrolling PDFs. Drag & drop resumes and instantly unlock deeply structured candidate insights.</p>
+      </div>
+
+      <!-- Card 2: Deep Context Matching -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="feature-title">Deep Context Matching</h3>
+        <p class="feature-desc">Grade skills, not keywords. Our engine analyzes true technical depth, career speed, and soft behavioral signals to surface profiles that actually align with your unique requirements.</p>
+        <div class="feature-visual-tags">
+          <span class="tech-badge exemplary">Python 96%</span>
+          <span class="tech-badge exemplary">PyTorch 98%</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Collaborative Smart Shortlists -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        </div>
+        <h3 class="feature-title">Collaborative Smart Shortlists</h3>
+        <p class="feature-desc">Build shortlists, not piles. Prioritize candidates in dynamic leaderboards, add team notes, and make data-backed hiring decisions contextually.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA SECTION ══════════════════════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="display-title-md cta-headline">Try with your own candidates.</h2>
+      <p class="cta-subtext">Upload standard resume PDFs or text profiles, adjust weights in the strategy matrix, and view instant structured evaluations in seconds.</p>
+      <a href="/login" class="btn-primary" style="padding: 12px 24px;">Start Evaluation - Free</a>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════════════════════ -->
+  <footer class="landing-footer">
+    TalentMatch AI — Intelligent Recruitment Platform &bull; Flat design inspired by Attio.
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

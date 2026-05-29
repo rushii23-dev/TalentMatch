@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How it Works — Discover the TalentMatch AI semantic matching and evaluation framework.">
+  <title>How it Works — TalentMatch AI</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      /* Architectural Colors */
+      --color-cloud-white: #ffffff;
+      --color-faint-fog: #f9f9fb;
+      --color-polar-mist: #eff0f6;
+      --color-light-ash: #e5e7eb;
+      --color-graphite: #5f6368;
+      --color-deep-charcoal: #1d1e20;
+      --color-active-indigo: #266df0;
+      
+      /* Precision Typography (Letter Tracking is CRUCIAL) */
+      --font-primary: 'Inter', sans-serif;
+      --text-display: 56px;
+      --leading-display: 1.1;
+      --tracking-display: -0.03em;
+      --text-heading-lg: 32px;
+      --text-body-sm: 15px;
+      --leading-body-sm: 1.6;
+      --tracking-body: -0.01em;
+      
+      /* Shapes & Curves */
+      --page-max-width: 1247px;
+      --radius-buttons: 9999px;
+      --radius-default: 6.26px;
+      --radius-xl: 12.53px;
+      
+      /* Attio Dynamic Motion Profile (Strict Bezier) */
+      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+</head>
+<body class="page-landing">
+
+  <!-- ═══ NAVIGATION ═══════════════════════════════════════════════════════ -->
+  <nav class="landing-nav">
+    <div class="landing-nav-inner">
+      <a href="/" class="nav-brand">TalentMatch AI</a>
+      <div class="nav-links">
+        <a href="/#product" class="nav-link">Product</a>
+        <a href="/how-it-works" class="nav-link active">How it Works</a>
+        <a href="/pricing" class="nav-link">Pricing</a>
+      </div>
+      <a href="/login" class="btn-primary">Start Evaluation - Free</a>
+    </div>
+  </nav>
+
+  <!-- ═══ TOP HEADER ═══════════════════════════════════════════════════════ -->
+  <section class="hero-section" style="padding-bottom: 20px;">
+    <h1 class="display-title-md" style="font-size: 36px; max-width: 800px; margin: 0 auto;">How TalentMatch AI re-imagines evaluation.</h1>
+    <p class="hero-subtext" style="max-width: 600px; margin-top: 12px;">Experience a decoupled sourcing, validation, and sorting loop powered by high-context semantic understanding.</p>
+  </section>
+
+  <!-- ═══ STEPS PIPELINE ═══════════════════════════════════════════════════ -->
+  <div class="steps-pipeline" style="max-width: 1247px; margin: 0 auto; padding: 0 20px;">
+
+    <!-- Step 1: Ingestion & Parsing -->
+    <section class="step-section scroll-reveal" id="step-ingestion">
+      <div class="step-content">
+        <span class="step-num">Step 01</span>
+        <h2 class="display-title-sm">Sourcing & Ingestion</h2>
+        <p>Drop multi-candidate resume PDFs or paste raw candidate text profiles. The parsing pipeline instantly maps raw structures, indexing profiles into clean data matrices with zero latency.</p>
+      </div>
+      <div class="step-visual">
+        <div class="ingestion-zone" id="ingestionZone">
+          <div class="pdf-icon icon-1">📄 CV_Elena.pdf</div>
+          <div class="pdf-icon icon-2">📄 CV_Julian.pdf</div>
+          <div class="pdf-icon icon-3">📄 CV_Sarah.pdf</div>
+          <div class="drop-zone-text">Drop candidates here</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 2: Semantic Evaluation -->
+    <section class="step-section scroll-reveal" id="step-evaluation">
+      <div class="step-content">
+        <span class="step-num">Step 02</span>
+        <h2 class="display-title-sm">Semantic Evaluation</h2>
+        <p>Instead of matching surface keywords, our semantic engine runs vectorized alignments. It maps the candidate's career speed, technical depth, and soft behavioral signals to match your target matrix.</p>
+      </div>
+      <div class="step-visual">
+        <div class="matrix-card">
+          <div class="matrix-grid">
+            <span class="matrix-node" id="node-python">Python</span>
+            <span class="matrix-node" id="node-pytorch">PyTorch</span>
+            <span class="matrix-node" id="node-docker">Docker</span>
+            <span class="matrix-node" id="node-aws">AWS</span>
+          </div>
+          <div class="matrix-connector">
+            <div class="pulse-line"></div>
+          </div>
+          <div class="match-score-node">
+            <div class="match-score-label">Match Score</div>
+            <div class="match-score-value" id="matchValue">0%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 3: Collaborative Ranking -->
+    <section class="step-section scroll-reveal" id="step-ranking">
+      <div class="step-content">
+        <span class="step-num">Step 03</span>
+        <h2 class="display-title-sm">Collaborative Ranking</h2>
+        <p>Compile and prioritize candidates inside dynamic ranking leaderboards. Instantly add team feedback tags, tag red flags, and trigger automated pipeline evaluations collaboratively.</p>
+      </div>
+      <div class="step-visual">
+        <div class="mini-leaderboard">
+          <div class="mini-row" id="row-sarah" data-score="84">
+            <span class="mini-rank">#03</span>
+            <span class="mini-name">Sarah Manning</span>
+            <span class="mini-score">84%</span>
+            <span class="mini-note">Pending Db Sync</span>
+          </div>
+          <div class="mini-row" id="row-elena" data-score="96">
+            <span class="mini-rank">#01</span>
+            <span class="mini-name">Elena Kozlova</span>
+            <span class="mini-score">96%</span>
+            <span class="mini-note">Strong scale depth</span>
+          </div>
+          <div class="mini-row" id="row-julian" data-score="91">
+            <span class="mini-rank">#02</span>
+            <span class="mini-name">Julian Duarte</span>
+            <span class="mini-score">91%</span>
+            <span class="mini-note">Former Co-Founder</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ═══ CTA SECTION ══════════════════════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="display-title-md cta-headline">Ready to re-imagine your pipeline?</h2>
+      <p class="cta-subtext">Experience high-speed recruitment with full semantic transparency and zero clutter.</p>
+      <a href="/login" class="btn-primary" style="padding: 12px 24px;">Start Evaluation - Free</a>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════════════════════ -->
+  <footer class="landing-footer">
+    TalentMatch AI — Intelligent Recruitment Platform &bull; Flat design inspired by Attio.
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

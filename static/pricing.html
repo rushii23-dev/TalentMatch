@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pricing Plans — Choose a recruitment plan that fits your evaluation requirements.">
+  <title>Pricing Plans — TalentMatch AI</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      /* Architectural Colors */
+      --color-cloud-white: #ffffff;
+      --color-faint-fog: #f9f9fb;
+      --color-polar-mist: #eff0f6;
+      --color-light-ash: #e5e7eb;
+      --color-graphite: #5f6368;
+      --color-deep-charcoal: #1d1e20;
+      --color-active-indigo: #266df0;
+      
+      /* Precision Typography (Letter Tracking is CRUCIAL) */
+      --font-primary: 'Inter', sans-serif;
+      --text-display: 56px;
+      --leading-display: 1.1;
+      --tracking-display: -0.03em;
+      --text-heading-lg: 32px;
+      --text-body-sm: 15px;
+      --leading-body-sm: 1.6;
+      --tracking-body: -0.01em;
+      
+      /* Shapes & Curves */
+      --page-max-width: 1247px;
+      --radius-buttons: 9999px;
+      --radius-default: 6.26px;
+      --radius-xl: 12.53px;
+      
+      /* Attio Dynamic Motion Profile (Strict Bezier) */
+      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+</head>
+<body class="page-landing">
+
+  <!-- ═══ NAVIGATION ═══════════════════════════════════════════════════════ -->
+  <nav class="landing-nav">
+    <div class="landing-nav-inner">
+      <a href="/" class="nav-brand">TalentMatch AI</a>
+      <div class="nav-links">
+        <a href="/#product" class="nav-link">Product</a>
+        <a href="/how-it-works" class="nav-link">How it Works</a>
+        <a href="/pricing" class="nav-link active">Pricing</a>
+      </div>
+      <a href="/login" class="btn-primary">Start Evaluation - Free</a>
+    </div>
+  </nav>
+
+  <!-- ═══ TOP HEADER ═══════════════════════════════════════════════════════ -->
+  <section class="hero-section" style="padding-bottom: 20px;">
+    <h1 class="display-title-md" style="font-size: 36px;">Simple pricing, zero visual clutter.</h1>
+    <p class="hero-subtext" style="max-width: 600px; margin-top: 12px;">Get started immediately. Evaluate candidates against custom matrices. (Spoiler: It's all free).</p>
+  </section>
+
+  <!-- ═══ PRICING GRID ═════════════════════════════════════════════════════ -->
+  <section class="pricing-grid-section" style="max-width: 1247px; margin: 0 auto; padding: 40px 20px 84px;">
+    <div class="pricing-container">
+      <div class="pricing-card">
+        <h4>Hackathon Tier</h4>
+        <p>Unlimited candidates, unlimited clicks, and the developers' silent approval.</p>
+        <div class="pricing-price">$0 / month</div>
+        <a href="/login" class="btn-primary">Get Started</a>
+      </div>
+      <div class="pricing-card premium">
+        <h4>GCC Enterprise Tier</h4>
+        <p>All Plan A features, a polished auto-evaluation pipeline, and auto-sends offers to top candidates. (Just kidding. It's Free.)</p>
+        <div class="pricing-price">$0 / month</div>
+        <a href="/login" class="btn-primary">Try Enterprise</a>
+      </div>
+      <div class="pricing-card">
+        <h4>Founder Tier</h4>
+        <p>Complimentary 'founder mindset' behavioral signal boost on GCC shortlists.</p>
+        <div class="pricing-price">Free</div>
+        <a href="/login" class="btn-primary">Start Evaluation</a>
+      </div>
+    </div>
+
+    <!-- ═══ COMPARISON GRID ═══════════════════════════════════════════════ -->
+    <div class="comparison-section" style="margin-top: 84px;">
+      <h3 class="display-title-sm" style="margin-bottom: 32px; text-align: center;">Compare Plan Features</h3>
+      
+      <table class="data-table" style="max-width: 1000px; margin: 0 auto; background: #ffffff; border: 1px solid var(--color-light-ash); border-radius: var(--radius-xl); overflow: hidden;">
+        <thead>
+          <tr style="background: var(--color-faint-fog);">
+            <th style="padding: 16px 20px;">Feature</th>
+            <th style="padding: 16px 20px; text-align: center;">Hackathon</th>
+            <th style="padding: 16px 20px; text-align: center;">GCC Enterprise</th>
+            <th style="padding: 16px 20px; text-align: center;">Founder</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 16px 20px; font-weight: 600;">Sourcing Ingestion</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-match-green);">✔ Unlimited</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-match-green);">✔ Unlimited</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-match-green);">✔ Unlimited</td>
+          </tr>
+          <tr>
+            <td style="padding: 16px 20px; font-weight: 600;">Resume Parsing</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-match-green);">✔ Standard</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-match-green);">✔ Advanced PDF</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-match-green);">✔ Advanced PDF</td>
+          </tr>
+          <tr>
+            <td style="padding: 16px 20px; font-weight: 600;">Semantic Evaluation</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-match-green);">✔ Standard</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-match-green);">✔ High Context</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-match-green);">✔ High Context</td>
+          </tr>
+          <tr>
+            <td style="padding: 16px 20px; font-weight: 600;">Collaborative Feed</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-graphite);">✖ No</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-match-green);">✔ Yes</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-match-green);">✔ Yes</td>
+          </tr>
+          <tr>
+            <td style="padding: 16px 20px; font-weight: 600;">Founder Mindset Boost</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-graphite);">✖ No</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-graphite);">✖ No</td>
+            <td style="padding: 16px 20px; text-align: center; color: var(--color-match-green);">✔ Yes (+3% Score)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════════════════════ -->
+  <footer class="landing-footer">
+    TalentMatch AI — Intelligent Recruitment Platform &bull; Flat design inspired by Attio.
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

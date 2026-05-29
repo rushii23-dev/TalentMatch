@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment Variables
+.env
+.env.*
+
+# Local IDE/OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local cache/logs
+.system_generated/
+*.log
